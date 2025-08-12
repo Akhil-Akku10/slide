@@ -72,5 +72,36 @@ function App() {
     </div>
   );
 }
+import React from 'react';
+import FileUpload from './components/FileUpload';
+
+const App = () => {
+  const handleFiles = (files) => {
+    console.log('Selected files:', files);
+
+    // Optional: send to backend
+    const formData = new FormData();
+    files.forEach(file => formData.append('file', file));
+
+    fetch('http://localhost:8001/upload/', {
+      method: 'POST',
+      body: formData,
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log('Upload response:', data);
+    })
+    .catch(err => {
+      console.error('Error uploading:', err);
+    });
+  };
+
+  return (
+    <div className="App">
+      <h1>📊 AI Slide Generator</h1>
+      <FileUpload onFilesSelected={handleFiles} />
+    </div>
+  );
+};
 
 export default App;

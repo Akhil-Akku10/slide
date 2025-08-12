@@ -238,8 +238,8 @@ from Insight_generator import InsightsGenerator
 
 # Update the upload endpoint
 from file_parser import FileParser
-from src.Insight_generator import InsightsGenerator
-from src.slide_generator import SlideGenerator
+from Insight_generator import InsightsGenerator
+from slide_generator import SlideGenerator
 
 @app.post("/upload")
 async def upload_files(files: List[UploadFile] = File(...), template_id: str = "saas"):

@@ -210,7 +210,7 @@ class SlideGenerator:
 
 if __name__ == "__main__":
     from file_parser import FileParser
-    from insights_generator import InsightsGenerator
+    from Insight_generator import InsightsGenerator
     import asyncio
 
     async def test_slide_generator():
